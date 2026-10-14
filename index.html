@@ -1,338 +1,565 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>禅境 Zen</title>
+<meta name="theme-color" content="#08090b">
+<meta name="description" content="Explore God, faith, the origin of existence, and the meaning of life.">
+<title>GOD — Beyond Everything</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:"Microsoft YaHei","PingFang SC",sans-serif;
-    background:#f5f3ee;
-    color:#333;
-    line-height:1.8;
+html {
+    scroll-behavior: smooth;
 }
 
-/* 导航 */
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:100;
-    background:rgba(245,243,238,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(0,0,0,0.05);
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: #08090b;
 }
 
-nav{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 40px;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.logo{
-    font-size:28px;
-    letter-spacing:6px;
-    color:#444;
+section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px;
+    overflow: hidden;
+    scroll-margin-top: 70px;
 }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:30px;
+/* Navigation */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 76px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    background: rgba(8, 9, 11, 0.32);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
-nav a{
-    text-decoration:none;
-    color:#555;
-    transition:0.3s;
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 7px;
 }
 
-nav a:hover{
-    color:#8b7355;
+nav {
+    display: flex;
+    gap: 32px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+nav a,
+.menu {
+    opacity: .8;
+    transition: opacity .3s;
+}
+
+nav a:hover,
+.menu:hover {
+    opacity: 1;
+}
+
+.menu {
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
 /* Hero */
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+
+.hero {
     background:
-    linear-gradient(rgba(245,243,238,0.75),
-    rgba(245,243,238,0.75)),
-    url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600")
-    center/cover;
+        radial-gradient(ellipse at 50% 38%,
+        rgba(180, 191, 216, .23) 0%,
+        rgba(70, 80, 105, .12) 25%,
+        transparent 58%),
+        linear-gradient(180deg,
+        #171a22 0%, #090a0d 75%, #08090b 100%);
 }
 
-.hero-content h1{
-    font-size:70px;
-    font-weight:300;
-    letter-spacing:12px;
-    margin-bottom:20px;
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(224, 230, 255, .09);
+    filter: blur(100px);
+    top: 18%;
+    pointer-events: none;
 }
 
-.hero-content p{
-    font-size:20px;
-    color:#666;
-    margin-bottom:40px;
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #b7bdca;
+    margin-bottom: 26px;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 36px;
-    border:1px solid #8b7355;
-    color:#8b7355;
-    text-decoration:none;
-    transition:0.4s;
+.hero h1 {
+    position: relative;
+    font-size: clamp(58px, 11vw, 132px);
+    font-weight: 500;
+    letter-spacing: 12px;
+    line-height: 1.15;
 }
 
-.btn:hover{
-    background:#8b7355;
-    color:white;
+.subtitle {
+    margin-top: 28px;
+    font-size: clamp(14px, 2vw, 19px);
+    letter-spacing: 3px;
+    color: #c6c8ce;
 }
 
-/* 通用区域 */
-section{
-    padding:100px 10%;
+.description {
+    max-width: 600px;
+    margin-top: 18px;
+    line-height: 2;
+    font-size: 14px;
+    color: #999eaa;
 }
 
-.section-title{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:50px;
-    color:#444;
-    font-weight:300;
+.buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 42px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.about{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all .3s;
 }
 
-.about p{
-    color:#666;
-    font-size:18px;
+.btn-primary {
+    background: #f5f5f5;
+    color: #111;
 }
 
-/* 语录 */
-.quote{
-    background:#ebe7de;
-    text-align:center;
+.btn-primary:hover {
+    background: #d8dbe2;
 }
 
-.quote-text{
-    max-width:800px;
-    margin:auto;
-    font-size:30px;
-    color:#555;
-    font-weight:300;
+.btn-secondary {
+    border: 1px solid rgba(255,255,255,.55);
+    color: #fff;
 }
 
-.quote-author{
-    margin-top:25px;
-    color:#888;
+.btn-secondary:hover {
+    background: rgba(255,255,255,.12);
 }
 
-/* 四季 */
-.seasons{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+.scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #8c91a0;
+    animation: float 2s infinite ease-in-out;
 }
 
-.card{
-    background:white;
-    padding:35px;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.05);
-    transition:0.4s;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(7px); }
 }
 
-.card:hover{
-    transform:translateY(-8px);
+/* Light section */
+
+.content-section {
+    background: #f4f4f2;
+    color: #171717;
 }
 
-.card h3{
-    margin-bottom:15px;
-    color:#8b7355;
+.content-section .eyebrow {
+    color: #777;
 }
 
-.card p{
-    color:#666;
+.content-section h2,
+.dark-section h2 {
+    font-size: clamp(36px, 6vw, 76px);
+    font-weight: 500;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    max-width: 900px;
 }
 
-/* 联系 */
-.contact{
-    text-align:center;
-    background:#ebe7de;
+.content-section p,
+.dark-section p {
+    max-width: 690px;
+    margin-top: 28px;
+    font-size: 15px;
+    line-height: 2.2;
+    color: #666;
 }
 
-.contact p{
-    margin-bottom:15px;
-    color:#666;
+/* Dark section */
+
+.dark-section {
+    background:
+        radial-gradient(ellipse at 50% 100%,
+        rgba(101, 116, 156, .2),
+        transparent 60%),
+        #0b0c10;
+    color: #fff;
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#888;
+.dark-section p {
+    color: #a4a7b0;
 }
 
-/* 禅意圆 */
-.zen-circle{
-    width:160px;
-    height:160px;
-    border:8px solid rgba(139,115,85,0.4);
-    border-radius:50%;
-    margin:0 auto 30px;
-    position:relative;
+/* Values */
+
+.values {
+    background: #111216;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    padding: 0;
 }
 
-.zen-circle::before{
-    content:"";
-    position:absolute;
-    width:110px;
-    height:110px;
-    border:5px solid rgba(139,115,85,0.2);
-    border-radius:50%;
-    top:18px;
-    left:18px;
+.value-card {
+    min-height: 420px;
+    padding: 80px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.025);
+    transition: background .3s;
 }
 
-@media(max-width:768px){
+.value-card:hover {
+    background: rgba(255,255,255,.07);
+}
 
-    .hero-content h1{
-        font-size:42px;
+.value-number {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #858b9a;
+    margin-bottom: 28px;
+}
+
+.value-card h3 {
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.value-card p {
+    max-width: 290px;
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 2;
+    color: #9a9da6;
+}
+
+/* Final section */
+
+.final-section {
+    background:
+        radial-gradient(ellipse at 50% 30%,
+        rgba(200, 210, 238, .15),
+        transparent 50%),
+        #08090b;
+}
+
+.final-section h2 {
+    font-size: clamp(38px, 7vw, 86px);
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.25;
+}
+
+.final-section p {
+    margin-top: 25px;
+    color: #a0a4ae;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Footer */
+
+footer {
+    padding: 28px 20px;
+    background: #08090b;
+    color: #686c76;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    line-height: 2.2;
+}
+
+/* Scroll reveal */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .9s ease, transform .9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive layout */
+
+@media (max-width: 700px) {
+    header {
+        height: 64px;
+        padding: 0 22px;
     }
 
-    nav{
-        flex-direction:column;
-        gap:15px;
+    nav {
+        display: none;
     }
 
-    nav ul{
-        gap:15px;
+    .logo {
+        font-size: 19px;
+    }
+
+    .hero h1 {
+        letter-spacing: 5px;
+    }
+
+    .subtitle {
+        letter-spacing: 1px;
+    }
+
+    .btn {
+        min-width: 155px;
+    }
+
+    .values {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card {
+        min-height: 310px;
+        padding: 55px 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-    <nav>
-        <div class="logo">禅境</div>
+    <a class="logo" href="#home">G O D</a>
 
-        <ul>
-            <li><a href="#about">关于</a></li>
-            <li><a href="#quote">静心</a></li>
-            <li><a href="#season">四季</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
+    <nav aria-label="Main navigation">
+        <a href="#meaning">ORIGIN</a>
+        <a href="#belief">FAITH</a>
+        <a href="#values">VALUES</a>
+        <a href="#explore">EXPLORE</a>
     </nav>
+
+    <a class="menu" href="#explore">DISCOVER</a>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
+<main>
 
-        <div class="zen-circle"></div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="eyebrow reveal">BEYOND EVERYTHING</div>
 
-        <h1>禅 境</h1>
+        <h1 class="reveal">GOD</h1>
 
-        <p>一花一世界 · 一叶一菩提</p>
+        <div class="subtitle reveal">
+            The Origin of All Things
+        </div>
 
-        <a href="#about" class="btn">
-            开启静心之旅
-        </a>
-
-    </div>
-</section>
-
-<section id="about">
-    <h2 class="section-title">关于禅修</h2>
-
-    <div class="about">
-        <p>
-            禅，不在远山古寺，而在当下这一刻。
-            放下纷扰，观照内心，在呼吸之间感受宁静，
-            于简单之中发现生命最本真的力量。
+        <p class="description reveal">
+            Between the vastness of the universe<br>
+            and the infinity of time,<br>
+            humanity continues to ask one question:<br>
+            Where do we come from, and where are we going?
         </p>
-    </div>
-</section>
 
-<section id="quote" class="quote">
-    <h2 class="section-title">每日静心</h2>
+        <div class="buttons reveal">
+            <a href="#meaning" class="btn btn-primary">
+                DISCOVER THE DIVINE
+            </a>
 
-    <div class="quote-text">
-        “心若无尘，清风自来。”
-    </div>
+            <a href="#belief" class="btn btn-secondary">
+                EXPLORE FAITH
+            </a>
+        </div>
 
-    <div class="quote-author">
-        —— 禅语
-    </div>
-</section>
+        <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
+    </section>
 
-<section id="season">
-    <h2 class="section-title">四季禅境</h2>
+    <!-- Origin -->
+    <section class="content-section" id="meaning">
+        <div class="eyebrow reveal">01 — THE ORIGIN</div>
 
-    <div class="seasons">
+        <h2 class="reveal">
+            Beyond Time.<br>
+            Beyond Space.
+        </h2>
 
-        <div class="card">
-            <h3>春 · 生</h3>
+        <p class="reveal">
+            Across many religious and philosophical traditions,
+            God is understood as the creator of the universe,
+            the source of all existence, or an ultimate reality
+            beyond the limits of human understanding.
+            For some, God is a personal being.
+            For others, the divine represents cosmic order,
+            absolute truth, or the mystery at the heart of life.
+        </p>
+    </section>
+
+    <!-- Faith -->
+    <section class="dark-section" id="belief">
+        <div class="eyebrow reveal">02 — FAITH & HUMANITY</div>
+
+        <h2 class="reveal">
+            Different Paths.<br>
+            One Search for Meaning.
+        </h2>
+
+        <p class="reveal">
+            Christianity, Islam, and Judaism center their faith
+            on one God, while differing in theology, tradition,
+            and religious practice.
+            Other religious and philosophical traditions
+            explore the sacred, the cosmos, consciousness,
+            and the relationship between humanity and existence
+            in their own distinctive ways.
+            The history of faith is also a history of humanity's
+            search for understanding.
+        </p>
+    </section>
+
+    <!-- Values -->
+    <section class="values" id="values">
+
+        <div class="value-card reveal">
+            <div class="value-number">01 / LOVE</div>
+            <h3>Love & Compassion</h3>
             <p>
-                春风轻拂，万物萌发。
-                在新生中感受生命的希望。
+                In many traditions, love, forgiveness,
+                and compassion are seen as essential
+                ways of approaching the sacred.
             </p>
         </div>
 
-        <div class="card">
-            <h3>夏 · 盛</h3>
+        <div class="value-card reveal">
+            <div class="value-number">02 / TRUTH</div>
+            <h3>Truth & Wisdom</h3>
             <p>
-                万物繁茂，阳光充盈。
-                学会在热烈中保持内心安定。
+                Asking why the universe exists is part
+                of humanity's enduring pursuit of knowledge,
+                truth, and a deeper understanding of our limits.
             </p>
         </div>
 
-        <div class="card">
-            <h3>秋 · 悟</h3>
+        <div class="value-card reveal">
+            <div class="value-number">03 / PURPOSE</div>
+            <h3>Life & Purpose</h3>
             <p>
-                落叶归根，收获沉淀。
-                在变化中体会无常与智慧。
+                Whether guided by faith or personal philosophy,
+                we continue to search for meaningful values
+                and a direction worth pursuing.
             </p>
         </div>
 
-        <div class="card">
-            <h3>冬 · 静</h3>
-            <p>
-                万籁俱寂，回归本心。
-                在沉静中积蓄新的力量。
-            </p>
+    </section>
+
+    <!-- Explore -->
+    <section class="final-section" id="explore">
+        <div class="eyebrow reveal">03 — THE JOURNEY WITHIN</div>
+
+        <h2 class="reveal">
+            Explore the Unknown.<br>
+            Question Existence.
+        </h2>
+
+        <p class="reveal">
+            The meaning of God differs across faiths,
+            cultures, and individual experiences.<br>
+            Every journey of discovery begins with a question.
+        </p>
+
+        <div class="buttons reveal">
+            <a href="#home" class="btn btn-primary">
+                BEGIN AGAIN
+            </a>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<section id="contact" class="contact">
-    <h2 class="section-title">静心交流</h2>
-
-    <p>邮箱：zen@zen.reaky.com</p>
-    <p>愿你于喧嚣世界，寻得一方清净。</p>
-</section>
+</main>
 
 <footer>
-    ©  禅境 Zen · Mindfulness & Serenity
+    GOD — BEYOND EVERYTHING<br>
+    A REFLECTION ON FAITH, PHILOSOPHY & EXISTENCE
 </footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
 
 </body>
 </html>
